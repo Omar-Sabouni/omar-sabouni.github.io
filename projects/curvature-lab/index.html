@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="CurvatureLab differential geometry workbench by Omar Sabouni." />
+    <title>curvature-lab · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>Curvature Lab</h1>
+      <p class="lede">A browser tool for selecting a point on one of four analytic parametric surfaces and inspecting its local curvature.</p>
+      <p>The torus, sphere, hyperbolic paraboloid, and catenoid each provide analytic first and second derivatives. The app derives the fundamental forms and reports Gaussian curvature <code>K</code>, mean curvature <code>H</code>, and principal curvatures <code>k₁</code> and <code>k₂</code>.</p>
+      <figure class="artifact">
+        <a href="/images/projects/curvature-lab.png"><img src="/images/projects/curvature-lab.png" width="1440" height="900" alt="Curvature Lab showing a Gaussian-curvature torus, signed legend, selected point, parameter controls, and local curvature readouts" /></a>
+        <figcaption>Torus colored by Gaussian curvature, with a selected point and its local geometric quantities.</figcaption>
+      </figure>
+      <h2>What changes with the selected point</h2>
+      <ul>
+        <li>The mesh can be colored by Gaussian, mean, minimum-principal, or maximum-principal curvature.</li>
+        <li>A marker and unit normal locate the selected surface point.</li>
+        <li>The <code>u</code> and <code>v</code> controls provide a precise alternative to selecting on the WebGL canvas.</li>
+      </ul>
+      <h2>Run</h2>
+      <pre tabindex="0" role="region" aria-label="Curvature Lab setup commands"><code>npm install
+npm run dev</code></pre>
+    </main>
+  </body>
+</html>

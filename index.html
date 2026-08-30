@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="An engineering project directory by Omar Sabouni, covering robotics, embedded systems, applied AI, sensor fusion, and engineering software." />
+    <title>Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="page-shell identity">
+        <div>
+          <h1>Omar Sabouni</h1>
+          <p class="identity-role">Computer Engineer | Robotics, Embedded Systems &amp; Applied AI</p>
+        </div>
+        <nav aria-label="Contact">
+          <a href="mailto:omarasabouni@gmail.com">Email</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="page-shell" tabindex="-1">
+      <section id="projects" class="project-catalog" aria-labelledby="projects-title">
+        <header class="index-heading">
+          <h2 id="projects-title">Projects</h2>
+        </header>
+        <ol class="project-list">
+          <li data-project="inspect-flow">
+            <article class="project-row">
+              <a class="project-preview" href="/projects/inspect-flow/" tabindex="-1" aria-label="Project preview — open record: InspectFlow">
+                <img src="/images/projects/inspect-flow.png" width="1440" height="960" alt="InspectFlow replay with an annotated conveyor frame, gate totals, inspection settings, and playback controls" decoding="async" fetchpriority="high" />
+              </a>
+              <div class="project-summary">
+                <h3><a href="/projects/inspect-flow/">InspectFlow</a></h3>
+                <p>A Python and OpenCV conveyor inspection pipeline that tracks parts, records gate decisions, and replays annotated runs in the browser. Nominal and poor-lighting fixtures keep measurement behavior and undecided cases visible.</p>
+              </div>
+            </article>
+          </li>
+          <li data-project="robot-replay-studio">
+            <article class="project-row">
+              <a class="project-preview" href="/projects/robot-replay-studio/" tabindex="-1" aria-label="Project preview — open record: Robot Replay Studio">
+                <img src="/images/projects/robot-replay-studio.png" width="1440" height="1000" alt="Robot Replay Studio with an incident list, synchronized 3D robot scene, detector details, timeline, and telemetry plots" loading="lazy" decoding="async" />
+              </a>
+              <div class="project-summary">
+                <h3><a href="/projects/robot-replay-studio/">Robot Replay Studio</a></h3>
+                <p>A browser-local TypeScript and Three.js tool that keeps a 3D robot scene, incidents, timeline, and signal plots on one replay clock. Ten detectors are covered by 141 tests and a 200,000-sample validation run.</p>
+              </div>
+            </article>
+          </li>
+          <li data-project="telemetry-link">
+            <article class="project-row">
+              <a class="project-preview" href="/projects/telemetry-link/" tabindex="-1" aria-label="Project preview — open record: TelemetryLink">
+                <img src="/images/projects/telemetry-link.png" width="1440" height="1265" alt="TelemetryLink diagnostic report with decoded frame records, selected JSON data, sequence anomalies, and parser counters" loading="lazy" decoding="async" />
+              </a>
+              <div class="project-summary">
+                <h3><a href="/projects/telemetry-link/">TelemetryLink</a></h3>
+                <p>A dependency-free C++20 streaming decoder that preserves partial frames and recovers after noise, invalid lengths, or CRC failures. It covers 30 parser edge cases and a two-million-frame synthetic benchmark.</p>
+              </div>
+            </article>
+          </li>
+          <li data-project="curvature-lab">
+            <article class="project-row">
+              <a class="project-preview" href="/projects/curvature-lab/" tabindex="-1" aria-label="Project preview — open record: Curvature Lab">
+                <img src="/images/projects/curvature-lab.png" width="1440" height="900" alt="Curvature Lab showing a Gaussian-curvature torus, signed legend, selected point, parameter controls, and local curvature readouts" loading="lazy" decoding="async" />
+              </a>
+              <div class="project-summary">
+                <h3><a href="/projects/curvature-lab/">Curvature Lab</a></h3>
+                <p>A browser tool for selecting a point on one of four analytic parametric surfaces and inspecting its Gaussian, mean, and principal curvatures.</p>
+              </div>
+            </article>
+          </li>
+        </ol>
+
+        <section class="more-projects" aria-labelledby="more-projects-title">
+          <header class="index-heading">
+            <h3 id="more-projects-title">More projects</h3>
+          </header>
+          <ol class="compact-project-list">
+            <li data-project="megaminx">
+              <div><a class="compact-project-name" href="/projects/megaminx/">Megaminx Top-Edge Model</a><p>Shortest-path explorer for five top-layer edges under the F and S generators.</p></div>
+              <span class="project-language">TypeScript</span>
+            </li>
+            <li data-project="ledger-lite">
+              <div><a class="compact-project-name" href="/projects/ledger-lite/">LedgerLite</a><p>Double-entry ledger with idempotent posting, linked reversals, and reconciliation controls.</p></div>
+              <span class="project-language">Python</span>
+            </li>
+            <li data-project="bayes-visualizer">
+              <div><a class="compact-project-name" href="/projects/bayes-visualizer/">Bayes theorem calculator</a><p>Posterior, odds, expected-count, and natural-frequency views for the same update.</p></div>
+              <span class="project-language">JavaScript</span>
+            </li>
+            <li data-project="edgebench">
+              <div><a class="compact-project-name" href="/projects/edgebench/">InferQual</a><p>Compares PyTorch and ONNX Runtime FP32/INT8 latency and output similarity.</p></div>
+              <span class="project-language">Python</span>
+            </li>
+            <li data-project="fleetwatch">
+              <div><a class="compact-project-name" href="/projects/fleetwatch/">FleetWatch</a><p>Local telemetry board for an eight-robot warehouse fleet.</p></div>
+              <span class="project-language">Python</span>
+            </li>
+            <li data-project="kalman_state_estimation">
+              <div><a class="compact-project-name" href="/projects/kalman_state_estimation/">2D estimator comparison</a><p>Kalman, alpha–beta, and moving-average tracking on the same motion.</p></div>
+              <span class="project-language">TypeScript</span>
+            </li>
+            <li data-project="numbrix-visualizer">
+              <div><a class="compact-project-name" href="/projects/numbrix-visualizer/">Numbrix Solver Visualizer</a><p>Constraint-solver trace viewer for propagation, branching, rollback, and candidate domains.</p></div>
+              <span class="project-language">TypeScript</span>
+            </li>
+            <li data-project="productpulse">
+              <div><a class="compact-project-name" href="/projects/productpulse/">ProductPulse</a><p>DuckDB product analytics for activity, activation, retention, and cohorts.</p></div>
+              <span class="project-language">Python</span>
+            </li>
+          </ol>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

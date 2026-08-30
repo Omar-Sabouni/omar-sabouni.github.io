@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="Bayes theorem calculator by Omar Sabouni." />
+    <title>bayes-visualizer · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>Bayes theorem calculator</h1>
+      <p class="lede">Three probability inputs update a posterior, expected counts, contingency table, likelihood ratio, odds, and base-rate comparison in the browser.</p>
+      <figure class="artifact">
+        <a href="/images/projects/bayes-visualizer.png"><img src="/images/projects/bayes-visualizer.png" width="1440" height="1184" alt="Bayes theorem worksheet with medical-screening inputs, a ten-thousand-case population field, posterior result, and collapsed appendices" /></a>
+        <figcaption>Default medical-screening example: 1% prevalence, 95% sensitivity, and 5% false-positive rate.</figcaption>
+      </figure>
+      <h2>Reading the default result</h2>
+      <p>For a hypothetical cohort of 10,000, the inputs produce 95 true positives and 495 false positives. Of 590 positive tests, 95 correspond to the condition: <strong>16.1%</strong>.</p>
+      <table class="data-table" tabindex="0" aria-label="Default medical-screening natural frequencies">
+        <thead><tr><th>Starting state</th><th>Positive test</th><th>Negative test</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><th>Condition present</th><td>95</td><td>5</td><td>100</td></tr>
+          <tr><th>Condition absent</th><td>495</td><td>9,405</td><td>9,900</td></tr>
+          <tr><th>Total</th><td>590</td><td>9,410</td><td>10,000</td></tr>
+        </tbody>
+      </table>
+      <h2>Run</h2>
+      <p>Open <code>bayes-visualizer/index.html</code> directly in a modern browser. The application is static and has no build step.</p>
+    </main>
+  </body>
+</html>

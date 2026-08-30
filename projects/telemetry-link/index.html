@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="TelemetryLink incremental telemetry decoder by Omar Sabouni." />
+    <title>telemetry-link · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>TelemetryLink</h1>
+      <p class="lede">A dependency-free C++20 library and command-line decoder for heartbeat, IMU, and motor-status frames arriving in arbitrary chunks.</p>
+      <dl class="definition-grid">
+        <div><dt>Runtime dependencies</dt><dd>None</dd></div>
+        <div><dt>Parser edge cases</dt><dd>30</dd></div>
+        <div><dt>Synthetic benchmark</dt><dd>2 million frames</dd></div>
+      </dl>
+      <h2>JSON Lines is the interface</h2>
+      <pre tabindex="0" role="region" aria-label="Mixed-stream decoder output excerpt"><code>{"kind":"message","version":1,"sequence":0,"sequence_status":"first","type":"heartbeat","payload":{"uptime_ms":1000,"status_flags":0}}
+{"kind":"message","version":1,"sequence":3,"sequence_status":"gap","expected_sequence":2,"missing_before":1,"type":"heartbeat","payload":{"uptime_ms":1750,"status_flags":3}}
+...
+{"kind":"health","status":"degraded","bytes_received":498,"frames_decoded":13,"heartbeat_frames":5,"imu_sample_frames":4,"motor_status_frames":4,"noise_bytes":105,"invalid_versions":0,"unknown_types":0,"invalid_lengths":1,"crc_failures":2,"payload_failures":0,"truncated_frames":0,"truncated_bytes":0,"sequence_gaps":5,"missing_frames":5,"out_of_order_frames":0}</code></pre>
+      <p>The parser scans past line noise, invalid lengths, garbage, and CRC failures while preserving valid frames that follow. EOF adds one health record; optional human diagnostics remain on stderr when <code>--diagnostics</code> is enabled.</p>
+      <table class="data-table" tabindex="0" aria-label="Mixed-stream decoder counts">
+        <thead><tr><th scope="col">Stream</th><th scope="col">Count</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Input extent</th><td>498 B</td></tr>
+          <tr><th scope="row">Decoded frames</th><td>13 from 18 logical sequence slots</td></tr>
+          <tr><th scope="row">Noise bytes</th><td>105</td></tr>
+          <tr><th scope="row">CRC failures</th><td>2</td></tr>
+          <tr><th scope="row">Inferred missing frames</th><td>5</td></tr>
+        </tbody>
+      </table>
+      <h2>Report</h2>
+      <figure class="artifact artifact-compact">
+        <a href="/images/projects/telemetry-link.png"><img src="/images/projects/telemetry-link.png" width="1440" height="1265" alt="TelemetryLink report listing decoded records, selected raw JSON, parser recovery counters, and faults" /></a>
+        <figcaption>Decoded records and recovery counters.</figcaption>
+      </figure>
+      <h2>Build, decode, render</h2>
+      <pre tabindex="0" role="region" aria-label="TelemetryLink build commands"><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel
+python3 tools/simulate.py --scenario mixed --count 18 --output mixed.bin
+./build/telemetry-link --diagnostics mixed.bin &gt; mixed.jsonl
+python3 tools/render_report.py mixed.jsonl --output report.html</code></pre>
+    </main>
+  </body>
+</html>

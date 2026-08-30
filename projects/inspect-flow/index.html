@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="InspectFlow conveyor inspection replay by Omar Sabouni." />
+    <title>inspect-flow · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>InspectFlow</h1>
+      <p class="lede">A conveyor run is processed with OpenCV, tracked, and replayed in the browser.</p>
+      <figure class="artifact">
+        <a href="/images/projects/inspect-flow.png"><img src="/images/projects/inspect-flow.png" width="1440" height="960" alt="InspectFlow replay with an annotated conveyor frame and inspection settings" /></a>
+        <figcaption>The replay keeps the annotated frame, gate totals, and inspection controls together.</figcaption>
+      </figure>
+      <h2>Lighting comparison</h2>
+      <table class="data-table" tabindex="0" aria-label="InspectFlow lighting comparison">
+        <thead><tr><th>Input condition</th><th>Passed at gate</th><th>Rejected at gate</th><th>Undecided</th></tr></thead>
+        <tbody>
+          <tr><th>Nominal</th><td>2</td><td>3</td><td>0</td></tr>
+          <tr><th>Poor lighting</th><td>0</td><td>4</td><td>5</td></tr>
+        </tbody>
+      </table>
+      <p>The project replays built-in conveyor scenes rather than consuming a live camera feed.</p>
+      <h2>Local workflow</h2>
+      <pre tabindex="0" role="region" aria-label="InspectFlow setup commands"><code>python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 run.py</code></pre>
+      <p>FastAPI serves completed-run data and annotated JPEG frames; the browser replays them with HTML transport controls and a Canvas defect chart.</p>
+    </main>
+  </body>
+</html>

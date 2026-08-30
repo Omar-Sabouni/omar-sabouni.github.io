@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="Robot Replay Studio incident replay by Omar Sabouni." />
+    <title>robot-replay-studio · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>Robot Replay Studio</h1>
+      <p class="lede">A browser incident replay that keeps a faulty run and healthy baseline synchronized across the scene, incident list, timeline, signals, and selected sample.</p>
+      <dl class="definition-grid">
+        <div><dt>Incident detectors</dt><dd>10</dd></div>
+        <div><dt>Automated tests</dt><dd>141</dd></div>
+        <div><dt>Validation run</dt><dd>200,000 samples</dd></div>
+      </dl>
+      <p>The default 45-second East Loop case is <code>RPL-042</code>. Timeline or incident selection moves every view to the same time.</p>
+      <figure class="artifact">
+        <a href="/images/projects/robot-replay-studio.png"><img src="/images/projects/robot-replay-studio.png" width="1440" height="1000" alt="Robot Replay Studio showing the RPL-042 candidate and baseline, incident list, scene, timeline, signals, and selected detector details" /></a>
+        <figcaption>RPL-042 keeps the faulty candidate and healthy baseline separate at each timestamp.</figcaption>
+      </figure>
+      <h2>RPL-042 sequence</h2>
+      <table class="data-table" tabindex="0" aria-label="RPL-042 incident sequence">
+        <thead><tr><th scope="col">Time</th><th scope="col">Recorded change</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>16.800 s</code></th><td>Link latency starts to rise.</td></tr>
+          <tr><th scope="row"><code>18.000–18.650 s</code></th><td>Candidate samples are absent.</td></tr>
+          <tr><th scope="row"><code>19.100 s</code></th><td>The localization-reset branch offsets pose and uncertainty.</td></tr>
+          <tr><th scope="row"><code>20.250–22.400 s</code></th><td>Current increases during constrained control.</td></tr>
+          <tr><th scope="row"><code>22.400 s</code></th><td>The candidate enters protective safe-stop.</td></tr>
+        </tbody>
+      </table>
+      <h2>Missing telemetry</h2>
+      <p>The spatial view may hold the last received pose for context, but chart paths break across missing intervals and the inspector reports that no candidate sample exists. The gap is not interpolated.</p>
+      <div class="notice">The included runs and 200,000-sample validation are synthetic. This is replay and analysis software, not a robot controller, SLAM system, or certified safety system.</div>
+      <h2>Run</h2>
+      <pre tabindex="0" role="region" aria-label="Robot Replay Studio setup commands"><code>npm ci
+npm run dev</code></pre>
+    </main>
+  </body>
+</html>

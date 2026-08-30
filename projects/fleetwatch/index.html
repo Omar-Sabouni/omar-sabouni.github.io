@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="FleetWatch local robot telemetry console by Omar Sabouni." />
+    <title>fleetwatch · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>FleetWatch</h1>
+      <p class="lede">A local FastAPI and SQLite console for robot telemetry, health, signal freshness, incidents, and shift controls.</p>
+      <figure class="artifact">
+        <a href="/images/projects/fleetwatch.png"><img src="/images/projects/fleetwatch.png" width="1440" height="1000" alt="FleetWatch console with an eight-robot roster, facility plan, incident queue, selected-unit telemetry, and shift controls" /></a>
+        <figcaption>DXB-01 with the robot roster, facility plan, selected unit, and incident queue.</figcaption>
+      </figure>
+      <h2>Incidents</h2>
+      <table class="data-table" tabindex="0" aria-label="FleetWatch incident types">
+        <thead><tr><th scope="col">Condition</th><th scope="col">Derived from</th><th scope="col">Operator state</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Low battery</th><td>Battery percentage</td><td>Acknowledgement is separate from recovery</td></tr>
+          <tr><th scope="row">Overheating</th><td>Temperature</td><td>History remains after the reading recovers</td></tr>
+          <tr><th scope="row">Stale telemetry</th><td>Event-time freshness</td><td>Fresh telemetry clears the live condition</td></tr>
+          <tr><th scope="row">Poor localization</th><td>Pose covariance</td><td>Uncertainty stays visible on the map</td></tr>
+          <tr><th scope="row">Restricted zone</th><td>Site-frame pose</td><td>Geofence state is derived server-side</td></tr>
+        </tbody>
+      </table>
+      <p>Event ingestion is idempotent. Health and freshness are derived from event time, while incident acknowledgement is an explicit operator action.</p>
+      <h2>Start the local console</h2>
+      <pre tabindex="0" role="region" aria-label="FleetWatch launch command"><code>./start.sh</code></pre>
+    </main>
+  </body>
+</html>

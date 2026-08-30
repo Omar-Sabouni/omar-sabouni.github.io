@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="Numbrix solver trace visualizer by Omar Sabouni." />
+    <title>numbrix-visualizer · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>Numbrix Solver Visualizer</h1>
+      <p class="lede">A worker-backed constraint solver and trace viewer for puzzles from 3×3 through 15×15.</p>
+      <pre tabindex="0" role="region" aria-label="Default trace excerpt"><code>step 4 / 11
+event       decision
+depth       1
+value       21
+candidate   row 3, column 3
+
+next branch:
+  contradiction → rollback
+  second candidate → solution</code></pre>
+      <figure class="artifact">
+        <a href="/images/projects/numbrix-visualizer.png"><img src="/images/projects/numbrix-visualizer.png" width="1440" height="1047" alt="Solved Numbrix grid with the continuous one-to-twenty-five path, terminal event, replay transport, exact counters, and collapsed solver inspectors" /></a>
+        <figcaption>The completed default run with its solved board, terminal event, transport, and exact counters.</figcaption>
+      </figure>
+      <h2>Recorded solver state</h2>
+      <p>Each event can include candidate domains, forced placements, the decision stack, rollback or restored cells, counters, and the active pseudocode line. The editor and replay remain responsive by running search in a Web Worker.</p>
+      <p>Large 15×15 inputs are accepted, but difficult instances can reach the default 2,000,000-node or 10-second search limit; recorded traces are capped independently at 20,000 events.</p>
+      <h2>Develop</h2>
+      <pre tabindex="0" role="region" aria-label="Numbrix setup commands"><code>npm ci
+npm run dev</code></pre>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="ProductPulse local product analytics pipeline by Omar Sabouni." />
+    <title>productpulse · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>ProductPulse</h1>
+      <p class="lede">Local DuckDB product analytics with readable SQL metrics and a Streamlit interface for date, acquisition-channel, and signup-device filters.</p>
+      <figure class="artifact">
+        <a href="/images/projects/productpulse.png"><img src="/images/projects/productpulse.png" width="1440" height="900" alt="ProductPulse native Streamlit application with sidebar filters, four analysis tabs, and daily active users" /></a>
+        <figcaption>Daily activity with channel and device filters.</figcaption>
+      </figure>
+      <h2>Metric pages</h2>
+      <ul>
+        <li>Daily activity</li>
+        <li>Activation funnel</li>
+        <li>D1 and D7 retention</li>
+        <li>Weekly cohorts</li>
+      </ul>
+      <p>Definitions distinguish observed activation and retention from users or cohorts whose measurement window has not matured.</p>
+      <h2>Rebuild and start</h2>
+      <pre tabindex="0" role="region" aria-label="ProductPulse launch command"><code>make start</code></pre>
+    </main>
+  </body>
+</html>

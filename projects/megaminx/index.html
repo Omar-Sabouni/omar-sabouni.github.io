@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="Five-edge Megaminx shortest-path model by Omar Sabouni." />
+    <title>megaminx · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>Megaminx top-edge model</h1>
+      <p class="lede">A shortest-path explorer for five top-layer edges under two abstract generators, F and S.</p>
+      <div class="notice">This is a reduced group-action model. It omits corners, other edges, and standard physical face-turn notation.</div>
+      <h2>State space</h2>
+      <dl class="definition-grid">
+        <div><dt>Structurally valid states</dt><dd>3,840</dd></div>
+        <div><dt>Parity components</dt><dd>4</dd></div>
+        <div><dt>States per component</dt><dd>960</dd></div>
+      </dl>
+      <p>For the displayed state <code>[5, 1, 2, 3, 4]</code>, breadth-first search returns <code>S′</code> as an exact one-move path to solved. The same search records layer counts through depth 9.</p>
+      <figure class="artifact artifact-tall">
+        <a href="/images/projects/megaminx.png"><img src="/images/projects/megaminx.png" width="1440" height="1000" alt="Megaminx five-edge model with puzzle view, move controls, exact path, and breadth-first layer counts" /></a>
+        <figcaption>The scene, command input, exact path, and 960-state breadth-first-search component share one synchronized state.</figcaption>
+      </figure>
+      <h2>Run</h2>
+      <pre tabindex="0" role="region" aria-label="Megaminx setup commands"><code>npm ci
+npm run dev</code></pre>
+    </main>
+  </body>
+</html>

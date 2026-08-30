@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111820" />
+    <meta name="description" content="InferQual runtime latency and output-similarity comparison by Omar Sabouni." />
+    <title>edgebench · Omar Sabouni</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
+    <main id="main-content" class="page-shell project-document" tabindex="-1">
+      <h1>InferQual</h1>
+      <p class="lede">A command-line comparison of PyTorch FP32 and ONNX Runtime FP32/INT8 latency and output similarity.</p>
+      <pre tabindex="0" role="region" aria-label="Run InferQual"><code>$ inferqual run --device cpu</code></pre>
+      <table class="data-table" tabindex="0" aria-label="InferQual results">
+        <thead><tr><th scope="col">Runtime</th><th scope="col">p50</th><th scope="col">p95</th><th scope="col">Samples/s</th><th scope="col">Cosine similarity</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">ONNX Runtime INT8</th><td>0.690284 ms</td><td>0.826315 ms</td><td>1,448.678</td><td>0.99998855</td></tr>
+          <tr><th scope="row">ONNX Runtime FP32</th><td>0.767018 ms</td><td>0.802530 ms</td><td>1,303.751</td><td>1.0</td></tr>
+          <tr><th scope="row">PyTorch FP32</th><td>1.284126 ms</td><td>1.495030 ms</td><td>778.740</td><td>1.0</td></tr>
+        </tbody>
+      </table>
+      <h2>Limit</h2>
+      <p>Results vary by computer and workload. They do not establish task accuracy, energy use, or a universal runtime ranking.</p>
+    </main>
+  </body>
+</html>
