@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#111820" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="description" content="InspectFlow: conveyor defect inspection with OpenCV rules and a small CNN, by Omar Sabouni." />
     <title>inspect-flow · Omar Sabouni</title>
     <link rel="stylesheet" href="/src/styles.css" />
@@ -17,7 +17,7 @@
       <dl class="definition-grid">
         <div><dt>Rules, poor light</dt><dd>46% right</dd></div>
         <div><dt>CNN, poor light</dt><dd>100% right</dd></div>
-        <div><dt>CNN, one CPU core</dt><dd>23 ms a frame</dd></div>
+        <div><dt>CNN, one CPU core</dt><dd>18 ms a frame</dd></div>
       </dl>
       <figure class="artifact video-artifact">
         <video src="/media/inspect-flow-demo.mp4" poster="/media/inspect-flow-demo.jpg" width="640" height="718" controls muted loop playsinline preload="metadata" aria-label="The classical rules and the CNN running on the same poor-light conveyor scene"></video>
@@ -28,10 +28,10 @@
       <table class="data-table" tabindex="0" aria-label="InspectFlow results on 20 test scenes">
         <thead><tr><th scope="col">Detector and light</th><th scope="col">Right call</th><th scope="col">Good parts rejected</th><th scope="col">Parts missed</th><th scope="col">ms per frame</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Rules, normal</th><td>100%</td><td>0 of 55</td><td>0 of 220</td><td>2.4</td></tr>
-          <tr><th scope="row">Rules, poor</th><td>46%</td><td>28 of 55</td><td>91 of 220</td><td>1.7</td></tr>
-          <tr><th scope="row">CNN, normal</th><td>100%</td><td>0 of 55</td><td>0 of 220</td><td>21.6</td></tr>
-          <tr><th scope="row">CNN, poor</th><td>100%</td><td>0 of 55</td><td>0 of 220</td><td>23.4</td></tr>
+          <tr><th scope="row">Rules, normal</th><td>100%</td><td>0 of 55</td><td>0 of 220</td><td>1.6</td></tr>
+          <tr><th scope="row">Rules, poor</th><td>46%</td><td>28 of 55</td><td>91 of 220</td><td>1.3</td></tr>
+          <tr><th scope="row">CNN, normal</th><td>100%</td><td>0 of 55</td><td>0 of 220</td><td>17.0</td></tr>
+          <tr><th scope="row">CNN, poor</th><td>100%</td><td>0 of 55</td><td>0 of 220</td><td>18.1</td></tr>
         </tbody>
       </table>
       <p>The rules check color against a fixed reference, so a moving spotlight pushes good parts out of tolerance. The CNN never saw a spotlight in training and still gets every part right. When it first scored perfectly I suspected a leak in my own test scenes, found one way it could happen, and rebuilt the generator to rule it out. Flat-field correction, the usual fix for the rules, found more parts but made the size measurements worse.</p>
