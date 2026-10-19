@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#111820" />
-    <meta name="description" content="InspectFlow conveyor inspection replay by Omar Sabouni." />
+    <meta name="description" content="InspectFlow conveyor inspection with classical rules and a CNN, scored against ground truth, by Omar Sabouni." />
     <title>inspect-flow · Omar Sabouni</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
@@ -13,26 +13,35 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>InspectFlow</h1>
-      <p class="lede">A conveyor run is processed with OpenCV, tracked, and replayed in the browser.</p>
+      <p class="lede">Conveyor inspection that runs classical OpenCV rules and a small CNN on the same frames and scores every gate decision against ground truth.</p>
+      <dl class="definition-grid">
+        <div><dt>Held-out scenes</dt><dd>20</dd></div>
+        <div><dt>CNN parameters</dt><dd>145k</dd></div>
+        <div><dt>Automated tests</dt><dd>91</dd></div>
+      </dl>
+      <p>Both detectors feed the same tracker and inspection gate. The CNN was trained in PyTorch on synthetic frames, exported to ONNX, and runs on CPU through OpenCV DNN.</p>
       <figure class="artifact">
-        <a href="/images/projects/inspect-flow.png"><img src="/images/projects/inspect-flow.png" width="1440" height="960" alt="InspectFlow replay with an annotated conveyor frame and inspection settings" /></a>
-        <figcaption>The replay keeps the annotated frame, gate totals, and inspection controls together.</figcaption>
+        <a href="/images/projects/inspect-flow.png"><img src="/images/projects/inspect-flow.png" width="1440" height="960" alt="InspectFlow replaying a poor-light run with the CNN detector, beside the measurement log, run setup and ground-truth score panel" /></a>
+        <figcaption>A poor-light run with the CNN detector. The score panel compares each gate decision with the true part.</figcaption>
       </figure>
-      <h2>Lighting comparison</h2>
-      <table class="data-table" tabindex="0" aria-label="InspectFlow lighting comparison">
-        <thead><tr><th>Input condition</th><th>Passed at gate</th><th>Rejected at gate</th><th>Undecided</th></tr></thead>
+      <h2>Gate results</h2>
+      <table class="data-table" tabindex="0" aria-label="InspectFlow gate results on 20 held-out scenes">
+        <thead><tr><th scope="col">Detector and lighting</th><th scope="col">Right verdict</th><th scope="col">Defects passed</th><th scope="col">Good parts rejected</th><th scope="col">Parts missed</th><th scope="col">Detect time, 1 core</th></tr></thead>
         <tbody>
-          <tr><th>Nominal</th><td>2</td><td>3</td><td>0</td></tr>
-          <tr><th>Poor lighting</th><td>0</td><td>4</td><td>5</td></tr>
+          <tr><th scope="row">Classical, nominal</th><td>100%</td><td>0 of 165</td><td>0 of 55</td><td>0 of 220</td><td>2.4 ms</td></tr>
+          <tr><th scope="row">Classical, poor light</th><td>45.9%</td><td>0 of 165</td><td>28 of 55</td><td>91 of 220</td><td>1.7 ms</td></tr>
+          <tr><th scope="row">CNN, nominal</th><td>100%</td><td>0 of 165</td><td>0 of 55</td><td>0 of 220</td><td>21.6 ms</td></tr>
+          <tr><th scope="row">CNN, poor light</th><td>100%</td><td>0 of 165</td><td>0 of 55</td><td>0 of 220</td><td>23.4 ms</td></tr>
         </tbody>
       </table>
-      <p>The project replays built-in conveyor scenes rather than consuming a live camera feed.</p>
-      <h2>Local workflow</h2>
+      <p>In poor light the classical color threshold rejects most good parts, and the darkest parts are never segmented. The CNN never saw that lighting during training and decides every part correctly, at about ten times the CPU cost per frame. Flat-field correction raised the classical detection recall but not its accuracy.</p>
+      <div class="notice">All scenes are synthetic. The perfect CNN score shows that it learned this simulator. It has not been tested on camera footage.</div>
+      <h2>Run</h2>
       <pre tabindex="0" role="region" aria-label="InspectFlow setup commands"><code>python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -r requirements.txt
-python3 run.py</code></pre>
-      <p>FastAPI serves completed-run data and annotated JPEG frames; the browser replays them with HTML transport controls and a Canvas defect chart.</p>
+python3 -m pip install .
+inspect-flow
+inspect-flow bench</code></pre>
     </main>
   </body>
 </html>
