@@ -16,7 +16,7 @@
       <p class="lede">A local FastAPI and SQLite console for robot telemetry, health, signal freshness, incidents, and shift controls.</p>
       <figure class="artifact">
         <a href="/images/projects/fleetwatch.png"><img src="/images/projects/fleetwatch.png" width="1440" height="1000" alt="FleetWatch console with an eight-robot roster, facility plan, incident queue, selected-unit telemetry, and shift controls" /></a>
-        <figcaption>The floor plan, with zones marked out in tape and the selected robot’s route.</figcaption>
+        <figcaption>The floor plan, showing zones and the selected robot’s route.</figcaption>
       </figure>
       <h2>Incidents</h2>
       <table class="data-table" tabindex="0" aria-label="FleetWatch incident types">
@@ -26,10 +26,10 @@
           <tr><th scope="row">Overheating</th><td>Temperature</td><td>History remains after the reading recovers</td></tr>
           <tr><th scope="row">Stale telemetry</th><td>Event-time freshness</td><td>Fresh telemetry clears the live condition</td></tr>
           <tr><th scope="row">Poor localization</th><td>Pose covariance</td><td>Uncertainty stays visible on the map</td></tr>
-          <tr><th scope="row">Restricted zone</th><td>Site-frame pose</td><td>Geofence state is derived server-side</td></tr>
+          <tr><th scope="row">Restricted zone</th><td>Site-frame pose</td><td>Clears when the robot leaves the zone</td></tr>
         </tbody>
       </table>
-      <p>Event ingestion is idempotent. Health and freshness are derived from event time, while incident acknowledgement is an explicit operator action.</p>
+      <p>An operator acknowledges each incident by hand. Health and freshness come from when each reading was taken, not when it arrived.</p>
       <h2>Start the local console</h2>
       <pre tabindex="0" role="region" aria-label="FleetWatch launch command"><code>./start.sh</code></pre>
     </main>

@@ -261,7 +261,7 @@ describe("site content", () => {
     expect(ledger).toContain("posting rows");
     expect(ledger).toMatch(/idempotency/i);
 
-    expect(telemetry).toContain("JSON Lines is the interface");
+    expect(telemetry).toContain("<h2>Output</h2>");
     expect(telemetry).toContain('"kind":"health"');
 
     expect(productpulse).toContain("Streamlit");

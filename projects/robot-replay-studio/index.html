@@ -22,7 +22,7 @@
       <p>The default 45-second East Loop case is <code>RPL-042</code>. Timeline or incident selection moves every view to the same time.</p>
       <figure class="artifact">
         <a href="/images/projects/robot-replay-studio.png"><img src="/images/projects/robot-replay-studio.png" width="1440" height="1000" alt="Robot Replay Studio showing the RPL-042 candidate and baseline, incident list, scene, timeline, signals, and selected detector details" /></a>
-        <figcaption>RPL-042 keeps the faulty candidate and healthy baseline separate at each timestamp.</figcaption>
+        <figcaption>RPL-042 with the faulty run and the healthy baseline side by side.</figcaption>
       </figure>
       <h2>RPL-042 sequence</h2>
       <table class="data-table" tabindex="0" aria-label="RPL-042 incident sequence">
@@ -36,7 +36,7 @@
         </tbody>
       </table>
       <h2>Missing telemetry</h2>
-      <p>The spatial view may hold the last received pose for context, but chart paths break across missing intervals and the inspector reports that no candidate sample exists. The gap is not interpolated.</p>
+      <p>During a telemetry gap the robot stays at its last known position, the charts show a break, and the inspector says no sample exists.</p>
       <div class="notice">The runs are synthetic.</div>
       <h2>Run</h2>
       <pre tabindex="0" role="region" aria-label="Robot Replay Studio setup commands"><code>npm ci
