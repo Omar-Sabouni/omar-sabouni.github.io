@@ -13,13 +13,11 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>2D estimator comparison</h1>
-      <p class="lede">The same measurements feed a Kalman filter, alpha–beta filter, and moving average so their trajectories and errors can be compared.</p>
+      <p class="project-links"><a href="/kalman_state_estimation/">Open the app</a> <a href="https://github.com/Omar-Sabouni/kalman_state_estimation">Source code</a></p>
+      <p class="lede">A Kalman filter, an alpha–beta filter and a moving average track the same noisy target.</p>
       <figure class="artifact">
         <a href="/images/projects/kalman-state-estimation.png"><img src="/images/projects/kalman-state-estimation.png" width="1440" height="1200" alt="Two-dimensional estimator notebook with configuration controls, a completed trajectory, and synchronized diagnostic charts" /></a>
-        <figcaption>This is a complete 80-step run.</figcaption>
       </figure>
-      <h2>What each run records</h2>
-      <p>Each run records the trajectory and rolling position error, the posterior covariance, the innovation and normalized innovation squared, and which correction each step bought within a fixed budget.</p>
       <h2>Develop</h2>
       <pre tabindex="0" role="region" aria-label="Estimator workbench setup commands"><code>npm install
 npm run dev</code></pre>

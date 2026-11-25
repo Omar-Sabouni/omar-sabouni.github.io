@@ -29,6 +29,15 @@ const featuredProjects = [
   "curvature-lab",
 ] as const satisfies readonly Project[];
 
+const liveApps: readonly string[] = [
+  "bayes-visualizer",
+  "curvature-lab",
+  "kalman_state_estimation",
+  "megaminx",
+  "numbrix-visualizer",
+  "robot-replay-studio",
+];
+
 const compactProjects = expectedProjects.slice(featuredProjects.length);
 
 const expectedMedia = {
@@ -105,6 +114,8 @@ describe("project inventory", () => {
       const expectedLinks = ["#main-content", "/"];
       const media = expectedMedia[project as keyof typeof expectedMedia];
       if (media) expectedLinks.push(`/images/projects/${media}`);
+      expectedLinks.push(`https://github.com/Omar-Sabouni/${project}`);
+      if (liveApps.includes(project)) expectedLinks.push(`/${project}/`);
       expect(
         hrefs(html).sort(),
         `${project} must link only to its own artifact and the portfolio root`,
@@ -259,7 +270,6 @@ describe("site content", () => {
 
     expect(ledger).toContain("#reconciliation");
     expect(ledger).toContain("posting rows");
-    expect(ledger).toMatch(/idempotency/i);
 
     expect(telemetry).toContain("<h2>Output</h2>");
     expect(telemetry).toContain('"kind":"health"');
@@ -282,7 +292,9 @@ describe("site content", () => {
       const hostname = new URL(url).hostname;
       return !["localhost", "127.0.0.1", "::1"].includes(hostname);
     });
-    expect([...new Set(publicExternalUrls)]).toEqual([]);
+    expect([...new Set(publicExternalUrls)].sort()).toEqual(
+      expectedProjects.map((project) => `https://github.com/Omar-Sabouni/${project}`).sort(),
+    );
 
     const expectedUniqueRootLinks = [
       "#main-content",

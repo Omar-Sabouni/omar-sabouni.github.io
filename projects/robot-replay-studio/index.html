@@ -13,16 +13,15 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>Robot Replay Studio</h1>
-      <p class="lede">Robot Replay Studio replays robot incidents in the browser and keeps a faulty run and a healthy baseline in sync across the scene, incident list, timeline, and signals.</p>
+      <p class="project-links"><a href="/robot-replay-studio/">Open the app</a> <a href="https://github.com/Omar-Sabouni/robot-replay-studio">Source code</a></p>
+      <p class="lede">Robot Replay Studio replays a faulty robot run next to a healthy one.</p>
       <dl class="definition-grid">
         <div><dt>Incident detectors</dt><dd>10</dd></div>
         <div><dt>Automated tests</dt><dd>141</dd></div>
         <div><dt>Validation run</dt><dd>200,000 samples</dd></div>
       </dl>
-      <p>The default 45-second East Loop case is <code>RPL-042</code>. Timeline or incident selection moves every view to the same time.</p>
       <figure class="artifact">
         <a href="/images/projects/robot-replay-studio.png"><img src="/images/projects/robot-replay-studio.png" width="1440" height="1000" alt="Robot Replay Studio showing the RPL-042 candidate and baseline, incident list, scene, timeline, signals, and selected detector details" /></a>
-        <figcaption>RPL-042 shows the faulty run and the healthy baseline side by side.</figcaption>
       </figure>
       <h2>RPL-042 sequence</h2>
       <table class="data-table" tabindex="0" aria-label="RPL-042 incident sequence">
@@ -35,8 +34,6 @@
           <tr><th scope="row"><code>22.400 s</code></th><td>The candidate enters protective safe-stop.</td></tr>
         </tbody>
       </table>
-      <h2>Missing telemetry</h2>
-      <p>During a telemetry gap the robot stays at its last known position, the charts show a break, and the inspector says no sample exists.</p>
       <div class="notice">The runs are synthetic.</div>
       <h2>Run</h2>
       <pre tabindex="0" role="region" aria-label="Robot Replay Studio setup commands"><code>npm ci

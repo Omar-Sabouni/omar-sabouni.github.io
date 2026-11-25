@@ -13,17 +13,16 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>Megaminx top-edge model</h1>
-      <p class="lede">This tool finds shortest paths for five top-layer Megaminx edges under two moves, F and S.</p>
+      <p class="project-links"><a href="/megaminx/">Open the app</a> <a href="https://github.com/Omar-Sabouni/megaminx">Source code</a></p>
+      <p class="lede">This finds the shortest solution for five top-layer Megaminx edges.</p>
       <h2>State space</h2>
       <dl class="definition-grid">
         <div><dt>Structurally valid states</dt><dd>3,840</dd></div>
         <div><dt>Parity components</dt><dd>4</dd></div>
         <div><dt>States per component</dt><dd>960</dd></div>
       </dl>
-      <p>The position <code>[5, 1, 2, 3, 4]</code> is one move (<code>S′</code>) from solved.</p>
       <figure class="artifact artifact-tall">
         <a href="/images/projects/megaminx.png"><img src="/images/projects/megaminx.png" width="1440" height="1000" alt="Megaminx five-edge model with puzzle view, move controls, exact path, and breadth-first layer counts" /></a>
-        <figcaption>The app shows the puzzle, the move controls, the solution path, and the search layers.</figcaption>
       </figure>
       <h2>Run</h2>
       <pre tabindex="0" role="region" aria-label="Megaminx setup commands"><code>npm ci

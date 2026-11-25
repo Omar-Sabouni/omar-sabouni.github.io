@@ -13,10 +13,10 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>FleetWatch</h1>
-      <p class="lede">FleetWatch is a local FastAPI and SQLite console that shows each robot’s telemetry, health, and incidents, and replays a shift.</p>
+      <p class="project-links"><a href="https://github.com/Omar-Sabouni/fleetwatch">Source code</a></p>
+      <p class="lede">FleetWatch shows which robot needs attention, where it is, and what changed.</p>
       <figure class="artifact">
         <a href="/images/projects/fleetwatch.png"><img src="/images/projects/fleetwatch.png" width="1440" height="1000" alt="FleetWatch console with an eight-robot roster, facility plan, incident queue, selected-unit telemetry, and shift controls" /></a>
-        <figcaption>The floor plan shows zones and the selected robot’s route.</figcaption>
       </figure>
       <h2>Incidents</h2>
       <table class="data-table" tabindex="0" aria-label="FleetWatch incident types">
@@ -29,7 +29,6 @@
           <tr><th scope="row">Restricted zone</th><td>Site-frame pose</td><td>Clears when the robot leaves the zone</td></tr>
         </tbody>
       </table>
-      <p>An operator acknowledges each incident by hand. Health and freshness come from when each reading was taken, not when it arrived.</p>
       <h2>Start the local console</h2>
       <pre tabindex="0" role="region" aria-label="FleetWatch launch command"><code>./start.sh</code></pre>
     </main>

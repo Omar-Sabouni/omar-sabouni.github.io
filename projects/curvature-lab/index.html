@@ -13,18 +13,11 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>Curvature Lab</h1>
-      <p class="lede">Curvature Lab lets you pick a point on one of four parametric surfaces and see its local curvature.</p>
-      <p>The torus, sphere, saddle (hyperbolic paraboloid), and catenoid each provide analytic first and second derivatives. The app derives the fundamental forms and reports Gaussian curvature <code>K</code>, mean curvature <code>H</code>, and principal curvatures <code>k₁</code> and <code>k₂</code>.</p>
+      <p class="project-links"><a href="/curvature-lab/">Open the app</a> <a href="https://github.com/Omar-Sabouni/curvature-lab">Source code</a></p>
+      <p class="lede">Pick a point on a torus, sphere, saddle or catenoid to see its curvature.</p>
       <figure class="artifact">
         <a href="/images/projects/curvature-lab.png"><img src="/images/projects/curvature-lab.png" width="1440" height="900" alt="Curvature Lab showing a Gaussian-curvature torus, signed legend, selected point, parameter controls, and local curvature readouts" /></a>
-        <figcaption>Gaussian curvature on a torus is negative on the inside and positive on the outside.</figcaption>
       </figure>
-      <h2>What changes with the selected point</h2>
-      <ul>
-        <li>The mesh can be colored by Gaussian, mean, minimum-principal, or maximum-principal curvature.</li>
-        <li>A marker and unit normal locate the selected surface point.</li>
-        <li>The <code>u</code> and <code>v</code> controls provide a precise alternative to selecting on the WebGL canvas.</li>
-      </ul>
       <h2>Run</h2>
       <pre tabindex="0" role="region" aria-label="Curvature Lab setup commands"><code>npm install
 npm run dev</code></pre>

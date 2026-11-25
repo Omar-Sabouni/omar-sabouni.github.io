@@ -13,7 +13,8 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>InspectFlow</h1>
-      <p class="lede">InspectFlow passes or rejects parts on a conveyor in two ways: with hand-tuned OpenCV rules, and with a small CNN I trained in PyTorch and run on the CPU through ONNX.</p>
+      <p class="project-links"><a href="https://github.com/Omar-Sabouni/inspect-flow">Source code</a></p>
+      <p class="lede">InspectFlow passes or rejects parts on a conveyor, using either OpenCV rules or a small CNN I trained.</p>
       <dl class="definition-grid">
         <div><dt>Rules, poor light</dt><dd>46% right</dd></div>
         <div><dt>CNN, poor light</dt><dd>100% right</dd></div>
@@ -21,9 +22,8 @@
       </dl>
       <figure class="artifact video-artifact">
         <video src="/media/inspect-flow-demo.mp4" poster="/media/inspect-flow-demo.jpg" width="640" height="718" controls muted loop playsinline preload="metadata" aria-label="The classical rules and the CNN running on the same poor-light conveyor scene"></video>
-        <figcaption>Both detectors see the same frames. The rules miss three of the seven parts and mislabel two, and the CNN gets all seven right.</figcaption>
+        <figcaption>On the same frames, the rules miss three of seven parts and the CNN gets all seven.</figcaption>
       </figure>
-      <p>The belt is simulated, so every decision at the gate can be checked against the part's true label. That separates the two mistakes a real line cares about: a bad part shipped and a good part scrapped.</p>
       <h2>Twenty test scenes</h2>
       <table class="data-table" tabindex="0" aria-label="InspectFlow results on 20 test scenes">
         <thead><tr><th scope="col">Detector and light</th><th scope="col">Right call</th><th scope="col">Good parts rejected</th><th scope="col">Parts missed</th><th scope="col">ms per frame</th></tr></thead>
@@ -34,12 +34,9 @@
           <tr><th scope="row">CNN, poor</th><td>100%</td><td>0 of 55</td><td>0 of 220</td><td>18.1</td></tr>
         </tbody>
       </table>
-      <p>The rules check color against a fixed reference, so a moving spotlight pushes good parts out of tolerance. The CNN never saw a spotlight in training and still gets every part right. When it first scored perfectly I suspected a leak in my own test scenes, found one way it could happen, and rebuilt the generator to rule it out. Flat-field correction, the usual fix for the rules, found more parts but made the size measurements worse.</p>
       <figure class="artifact">
         <a href="/images/projects/inspect-flow.png"><img src="/images/projects/inspect-flow.png" width="1440" height="960" alt="InspectFlow dashboard replaying a poor-light run with the CNN, with the run's score under the camera view" /></a>
-        <figcaption>The dashboard replays a run and scores it against the true labels as it goes.</figcaption>
       </figure>
-      <p>Python, OpenCV, PyTorch, ONNX, FastAPI and plain JavaScript, packaged with Docker and tested in GitHub Actions.</p>
       <div class="notice">The scenes are synthetic. The CNN has not been tested on camera footage.</div>
       <h2>Run</h2>
       <pre tabindex="0" role="region" aria-label="InspectFlow setup commands"><code>pip install .

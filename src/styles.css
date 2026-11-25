@@ -320,3 +320,5 @@ pre code { font-size: inherit; }
   .skip-link,
   .back-link { display: none; }
 }
+
+.project-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 20px; font-family: var(--type); }

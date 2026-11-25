@@ -13,7 +13,8 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>InferQual</h1>
-      <p class="lede">InferQual is a command-line tool that compares the latency and output of PyTorch FP32 and ONNX Runtime FP32/INT8. It picks the fastest backend whose output matches PyTorch.</p>
+      <p class="project-links"><a href="https://github.com/Omar-Sabouni/edgebench">Source code</a></p>
+      <p class="lede">InferQual times PyTorch and ONNX Runtime and picks the fastest backend whose output matches PyTorch.</p>
       <pre tabindex="0" role="region" aria-label="Run InferQual"><code>$ inferqual run --device cpu</code></pre>
       <table class="data-table" tabindex="0" aria-label="InferQual results">
         <thead><tr><th scope="col">Runtime</th><th scope="col">p50</th><th scope="col">p95</th><th scope="col">Samples/s</th><th scope="col">Cosine similarity</th></tr></thead>
