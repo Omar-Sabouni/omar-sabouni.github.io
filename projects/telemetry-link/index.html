@@ -13,7 +13,7 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>TelemetryLink</h1>
-      <p class="lede">A dependency-free C++20 library and command-line decoder for heartbeat, IMU, and motor-status frames arriving in arbitrary chunks.</p>
+      <p class="lede">TelemetryLink is a dependency-free C++20 library and command-line tool that decodes heartbeat, IMU, and motor-status frames arriving in chunks of any size.</p>
       <dl class="definition-grid">
         <div><dt>Runtime dependencies</dt><dd>None</dd></div>
         <div><dt>Parser edge cases</dt><dd>30</dd></div>
@@ -38,9 +38,9 @@
       <h2>Report</h2>
       <figure class="artifact artifact-compact">
         <a href="/images/projects/telemetry-link.png"><img src="/images/projects/telemetry-link.png" width="1440" height="1265" alt="TelemetryLink report listing decoded records, selected raw JSON, parser recovery counters, and faults" /></a>
-        <figcaption>The report for a damaged stream: one block per record, then the records and counters.</figcaption>
+        <figcaption>This is the report for a damaged stream. It shows one block per record, then the records and the counters.</figcaption>
       </figure>
-      <h2>Build, decode, render</h2>
+      <h2>Build and run</h2>
       <pre tabindex="0" role="region" aria-label="TelemetryLink build commands"><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --parallel
 python3 tools/simulate.py --scenario mixed --count 18 --output mixed.bin

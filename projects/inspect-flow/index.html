@@ -13,7 +13,7 @@
     <header class="document-header"><div class="page-shell"><a class="back-link" href="/">← Back to projects</a></div></header>
     <main id="main-content" class="page-shell project-document" tabindex="-1">
       <h1>InspectFlow</h1>
-      <p class="lede">Pass or reject decisions for parts on a conveyor, made two ways: with hand-tuned OpenCV rules, and with a small CNN I trained in PyTorch and run on the CPU through ONNX.</p>
+      <p class="lede">InspectFlow passes or rejects parts on a conveyor in two ways: with hand-tuned OpenCV rules, and with a small CNN I trained in PyTorch and run on the CPU through ONNX.</p>
       <dl class="definition-grid">
         <div><dt>Rules, poor light</dt><dd>46% right</dd></div>
         <div><dt>CNN, poor light</dt><dd>100% right</dd></div>
@@ -21,7 +21,7 @@
       </dl>
       <figure class="artifact video-artifact">
         <video src="/media/inspect-flow-demo.mp4" poster="/media/inspect-flow-demo.jpg" width="640" height="718" controls muted loop playsinline preload="metadata" aria-label="The classical rules and the CNN running on the same poor-light conveyor scene"></video>
-        <figcaption>Same scene, same frames. The rules miss three of the seven parts and mislabel two. The CNN gets all seven.</figcaption>
+        <figcaption>Both detectors see the same frames. The rules miss three of the seven parts and mislabel two, and the CNN gets all seven right.</figcaption>
       </figure>
       <p>The belt is simulated, so every decision at the gate can be checked against the part's true label. That separates the two mistakes a real line cares about: a bad part shipped and a good part scrapped.</p>
       <h2>Twenty test scenes</h2>

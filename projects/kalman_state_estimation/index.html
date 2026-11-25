@@ -16,14 +16,10 @@
       <p class="lede">The same measurements feed a Kalman filter, alpha–beta filter, and moving average so their trajectories and errors can be compared.</p>
       <figure class="artifact">
         <a href="/images/projects/kalman-state-estimation.png"><img src="/images/projects/kalman-state-estimation.png" width="1440" height="1200" alt="Two-dimensional estimator notebook with configuration controls, a completed trajectory, and synchronized diagnostic charts" /></a>
-        <figcaption>A complete 80-step run.</figcaption>
+        <figcaption>This is a complete 80-step run.</figcaption>
       </figure>
-      <h2>Diagnostics attached to the run</h2>
-      <ul>
-        <li>Trajectory and rolling position error.</li>
-        <li>Posterior covariance, innovation, and normalized innovation squared.</li>
-        <li>Which correction each step bought within a fixed budget.</li>
-      </ul>
+      <h2>What each run records</h2>
+      <p>Each run records the trajectory and rolling position error, the posterior covariance, the innovation and normalized innovation squared, and which correction each step bought within a fixed budget.</p>
       <h2>Develop</h2>
       <pre tabindex="0" role="region" aria-label="Estimator workbench setup commands"><code>npm install
 npm run dev</code></pre>
